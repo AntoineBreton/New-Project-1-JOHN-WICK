@@ -11,7 +11,7 @@
   <body>
     <section id="Homepage">
       <div>
-        <h1 class="game-name-homepage">JOHN WICK "BONTO"</h1>
+        <h1 class="game-name-homepage">JOHN WICK 'BONTO'</h1>
       </div>
       <div>
         <h2 class="game-context-homepage">
@@ -27,28 +27,41 @@
           />
         </label>
       </div>
+      <!-- <div class="steam-logo"></div> -->
       <div>
         <p>
-          <button class="enter-button-homepage">CLICK TO ENTER...</button>
+          <button class="enter-button-homepage">CONTINUE...</button>
         </p>
       </div>
     </section>
     <section id="Gamepage">
       <div>
-        <dialog id="pop-up-rules" open>
+        <dialog class="pop-up-rules" open>
+          <h1>Welcome to The John Wick 'Bonto'</h1>
           <p>
-            Welcome to The John Wick "Bonto" game my dear friend ! How you
-            already know, we keep John Wick's dog location secret. It's up to
-            you now to retreive the pet by playing a Bonto game and succeed at
-            it before a "00:30" countdown...hahaha ! You get as chances as
-            possible to match the dog card below with a similar we've hidden
-            behind those three mistery cards.
+            Rules : how you already know, we keep John Wick's dog in secret
+            place.It's up to you now to retreive the pet by playing a Bonto game
+            and succeed at it before an "00:30" countdown ends...! To do that,
+            you must match the dog card below with a pair we've hidden inside
+            those three mistery cards. Else, dog remains here with us. Good luck
+            !
           </p>
           <form method="dialog">
             <button>GOT IT !</button>
           </form>
         </dialog>
       </div>
+      <!-- <div>
+        <dialog class="pop-up-lose" open>
+          <h1>You Lose !!!></h1>
+          <p>
+            blablablablabla
+          </p>
+          <form method="dialog">
+            <button>GOT IT !</button>
+          </form>
+        </dialog>
+      </div> -->
       <div>
         <h1 class="game-name-gamepage">JOHN WICK "BONTO"</h1>
       </div>
@@ -61,18 +74,17 @@
           </p>
         </h2>
       </div>
-      <!-- <div class="pot-cards-background"></div> -->
-      <div id="cards-game">
-        <div class="mistery-card-1"></div>
-        <div class="mistery-card-2"></div>
-        <div class="mistery-card-3"></div>
+      <div id="start-game">
+        <button class="start-game-button">Start Game</button>
       </div>
       <div id="timer">
         <p>00:30</p>
       </div>
       <div id="card-reference"></div>
-      <div id="start-game">
-        <button class="start-game-button">Start Game</button>
+      <div id="cards-game">
+        <div class="mistery-card-1"></div>
+        <div class="mistery-card-2"></div>
+        <div class="mistery-card-3"></div>
       </div>
     </section>
   </body>

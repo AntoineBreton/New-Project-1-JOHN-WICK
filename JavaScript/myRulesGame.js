@@ -6,10 +6,11 @@ class Gameplay {
     this.pickedCards = [];
     this.pairsGuessed = 0;
     this.pairsClicked = 0;
+    this.timerIsOut = 0;
   }
 
   shuffleCards() {
-    this.cards.sort(() => Math.random() - 1);
+    this.cards.sort(() => Math.random() - 0.5);
   }
 
   checkIfPair(card1, card2) {
@@ -26,6 +27,8 @@ class Gameplay {
   }
 
   //   2. Timer rules
+
+  timeIsOver() {}
 }
 
 // exporting Gameplay class
