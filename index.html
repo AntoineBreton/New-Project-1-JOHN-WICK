@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JohnWick game</title>
+    <link rel="stylesheet" href="./Styles/style.css" />
+    <script src="./JavaScript/myGame.js" type="module"></script>
+  </head>
+  <body>
+    <section id="Homepage">
+      <div>
+        <h1 class="game-name-homepage">JOHN WICK "BONTO"</h1>
+      </div>
+      <div>
+        <h2 class="game-context-homepage">
+          <p><span>[</span>Help John Wick find his dog!<span>]</span></p>
+        </h2>
+      </div>
+      <div id="form-homepage">
+        <label class="birth-date-text-homepage">
+          Provide your age <span>(+18 only) </span><br /><input
+            class="birth-date-input-homepage"
+            type="date"
+            name="birthday"
+          />
+        </label>
+      </div>
+      <div>
+        <p>
+          <button class="enter-button-homepage">CLICK TO ENTER...</button>
+        </p>
+      </div>
+    </section>
+    <section id="Gamepage">
+      <div>
+        <dialog id="pop-up-rules" open>
+          <p>
+            Welcome to The John Wick "Bonto" game my dear friend ! How you
+            already know, we keep John Wick's dog location secret. It's up to
+            you now to retreive the pet by playing a Bonto game and succeed at
+            it before a "00:30" countdown...hahaha ! You get as chances as
+            possible to match the dog card below with a similar we've hidden
+            behind those three mistery cards.
+          </p>
+          <form method="dialog">
+            <button>GOT IT !</button>
+          </form>
+        </dialog>
+      </div>
+      <div>
+        <h1 class="game-name-gamepage">JOHN WICK "BONTO"</h1>
+      </div>
+      <div>
+        <h2 class="pick-right-card-text">
+          <p>
+            <span>[</span>Now, pick the right card ! Tic..Tac..Tic..Tac...<span
+              >]</span
+            >
+          </p>
+        </h2>
+      </div>
+      <!-- <div class="pot-cards-background"></div> -->
+      <div id="cards-game">
+        <div class="mistery-card-1"></div>
+        <div class="mistery-card-2"></div>
+        <div class="mistery-card-3"></div>
+      </div>
+      <div id="timer">
+        <p>00:30</p>
+      </div>
+      <div id="card-reference"></div>
+      <div id="start-game">
+        <button class="start-game-button">Start Game</button>
+      </div>
+    </section>
+  </body>
+</html>
