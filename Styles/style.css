@@ -73,7 +73,7 @@ body {
 .birth-date-input-homepage {
   text-align: center;
   background-color: white;
-  color: red;
+  color: black;
   font-size: large;
   font-weight: bolder;
   padding: 10px 55px;
@@ -176,7 +176,7 @@ body {
 } */
 
 #cards-game {
-  background: rgba(116, 3, 157, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   margin: 50px;
   padding: 80px 20px;
   height: 350px;
@@ -215,12 +215,13 @@ body {
   background: url("../Img/chien-pitbull-john-wick.jpeg");
   background-size: contain;
   /* position: fixed; */
-  margin: 40px 670px;
+  margin: 40px 700px;
   padding: 20px;
   text-align: center;
   font-size: 3rem;
   font-weight: bolder;
-  border: 4px solid red;
+  border: 5.5px solid greenyellow;
+  width: 150px;
 }
 
 /* #card-reference {
