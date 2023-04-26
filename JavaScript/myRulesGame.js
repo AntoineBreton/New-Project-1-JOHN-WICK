@@ -1,6 +1,6 @@
 // 1. Cards rules
 
-class Gameplay {
+class Cardgame {
   constructor(cards) {
     this.cards = cards;
     this.pickedCards = [];
@@ -10,7 +10,9 @@ class Gameplay {
   }
 
   shuffleCards() {
+    console.log(this.cards);
     this.cards.sort(() => Math.random() - 0.5);
+    console.log(this.cards);
   }
 
   checkIfPair(card1, card2) {
@@ -32,4 +34,4 @@ class Gameplay {
 }
 
 // exporting Gameplay class
-export default Gameplay;
+export default Cardgame;

@@ -19,6 +19,10 @@ const startGameButton = document.querySelector(".start-game-button");
 
 startGameButton.addEventListener("click", startgame);
 
+let win = document.getElementById("pop-up-win");
+let lose = document.getElementById("pop-up-lose");
+let gameOver = document.getElementById("pop-up-gameover");
+
 // Global variables
 
 let html = "";
@@ -35,54 +39,7 @@ enterButton.addEventListener("click", (event) => {
 
 // Create an event by liking on mistery cards
 
-// let html = "";
-
-cardGame.cards.forEach((pic) => {
-  html += `
-      <div class='card' data-card-name="${pic.name}">
-        <div class="back" name="${pic.img}"></div>
-        <div class="front" style="background: url(Img/${pic.img}) no-repeat"></div>
-      </div>
-    `;
-
-  document.querySelector("#cards-game").innerHTML = html;
-
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
-      card.classList.add("turned");
-      cardGame.pickedCards.push(card);
-      const refCard = document.querySelector("#card-reference img").dataset
-        .cardName;
-      if (cardGame.pickedCards.length === 1) {
-        const nameOne = cardGame.pickedCards[0].dataset.cardName;
-        console.log(nameOne);
-        console.log(refCard);
-        if (cardGame.checkIfPair(nameOne, refCard)) {
-          console.log("You win");
-          //pairsGuessed.innerText = cardGame.pairsGuessed;
-        } else {
-          setTimeout(() => {
-            card.classList.remove("turned");
-          }, 1200);
-        }
-      } else if (cardGame.pickedCards.length === 2) {
-        const nameTwo = cardGame.pickedCards[1].dataset.cardName;
-        console.log(nameTwo);
-        console.log(refCard);
-        if (cardGame.checkIfPair(nameTwo, refCard)) {
-          console.log("You win");
-          //pairsGuessed.innerText = cardGame.pairsGuessed;
-        } else {
-          setTimeout(() => {
-            card.classList.remove("turned");
-          }, 1200);
-        }
-      }
-    });
-  });
-});
-
-// Set the timer (countdown)
+// Set the timer (countdown) and Start game
 
 function startgame() {
   const startTimer = 1;
@@ -101,6 +58,65 @@ function startgame() {
       clearInterval(intervalId);
     }
   }
+
+  cardGame.shuffleCards();
+  play();
+  function play() {
+    cardGame.cards.forEach((pic) => {
+      html += `
+          <div class='card' data-card-name="${pic.name}">
+            <div class="back" name="${pic.img}"></div>
+            <div class="front" style="background: url(Img/${pic.img}) no-repeat"></div>
+          </div>
+        `;
+
+      document.querySelector("#cards-game").innerHTML = html;
+      document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.add("turned");
+          cardGame.pickedCards.push(card);
+          const refCard = document.querySelector("#card-reference img").dataset
+            .cardName;
+          if (cardGame.pickedCards.length === 1) {
+            const nameOne = cardGame.pickedCards[0].dataset.cardName;
+            console.log(nameOne);
+            console.log(refCard);
+            if (cardGame.checkIfPair(nameOne, refCard)) {
+              win.showModal();
+              console.log("You win");
+              clearInterval(intervalId);
+
+              //pairsGuessed.innerText = cardGame.pairsGuessed;
+            } else {
+              setTimeout(() => {
+                card.classList.remove("turned");
+              }, 1000);
+            }
+          } else if (cardGame.pickedCards.length === 2) {
+            const nameTwo = cardGame.pickedCards[1].dataset.cardName;
+            console.log(nameTwo);
+            console.log(refCard);
+            if (cardGame.checkIfPair(nameTwo, refCard)) {
+              win.showModal();
+              console.log("You win");
+              clearInterval(intervalId);
+              //pairsGuessed.innerText = cardGame.pairsGuessed;
+            } else {
+              lose.showModal();
+              console.log("You lose");
+            }
+          }
+        });
+      });
+    });
+  }
+
+  lose.addEventListener("close", () => {
+    cardGame.shuffleCards();
+    cardGame.pickedCards = [];
+    html = "";
+    play();
+  });
 }
 
 const countdownTimer = document.getElementById("timer");
@@ -113,14 +129,18 @@ const countdownTimer = document.getElementById("timer");
 
 // Pop-up "You win" shows up when you win
 
+// Pop-up "Gameover" when time is over
+
 // Agrandir mon titre h2 lorsque mon pointer passe dessus, puis le faire revenir à sa taille de base :
 
-let homePageContextTitle = document.getElementById("game-context-homepage");
+let extendHomePageContextTitle = document.getElementById(
+  "game-context-homepage"
+);
 
-homePageContextTitle.addEventListener("mouseover", function () {
-  homePageContextTitle.style.fontSize = "95px"; // Changer la taille de police à 24px
+extendHomePageContextTitle.addEventListener("mouseover", function () {
+  extendHomePageContextTitle.style.fontSize = "95px"; // Changer la taille de police à 24px
 });
 
-homePageContextTitle.addEventListener("mouseout", function () {
-  homePageContextTitle.style.fontSize = "60px"; // Revenir à la taille de police initiale (16px) lorsque la souris quitte l'élément texte
+extendHomePageContextTitle.addEventListener("mouseout", function () {
+  extendHomePageContextTitle.style.fontSize = "60px"; // Revenir à la taille de police initiale (16px) lorsque la souris quitte l'élément texte
 });

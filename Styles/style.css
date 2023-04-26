@@ -113,7 +113,7 @@ body {
 */
 
 .pop-up-rules {
-  background-color: rgb(0, 0, 0, 0.94);
+  background-color: rgba(0, 0, 0, 0.94);
   font-size: 1.8rem;
   font-stretch: extra-expanded;
   color: purple;
@@ -140,47 +140,20 @@ body {
   border-radius: 80px;
 }
 
-/* .pop-up-lose {
-  display: none;
+#pop-up-win {
+  position: absolute;
+  top: 1000px;
 }
 
-.pop-up-lose button {
-  font-family: "johnwick";
-  background-color: black;
-  color: greenyellow;
-  font-size: 2rem;
-  padding: 15px 50px;
-  border-radius: 80px;
-  display: none;
+#pop-up-lose {
+  position: absolute;
+  top: 1000px;
 }
 
-.pop-up-win {
-  display: none;
+#pop-up-gameover {
+  position: absolute;
+  top: 1000px;
 }
-
-.pop-up-win button {
-  font-family: "johnwick";
-  background-color: black;
-  color: greenyellow;
-  font-size: 2rem;
-  padding: 15px 50px;
-  border-radius: 80px;
-  display: none;
-}
-
-.pop-up-gameover {
-  display: none;
-}
-
-.pop-up-gameover button {
-  font-family: "johnwick";
-  background-color: black;
-  color: greenyellow;
-  font-size: 2rem;
-  padding: 15px 50px;
-  border-radius: 80px;
-  display: none;
-} */
 
 /* Block de titres */
 
