@@ -41,15 +41,15 @@ body {
   padding-top: 100px;
 }
 
-.game-context-homepage {
-  font-size: 50px;
+#game-context-homepage {
+  font-size: 60px;
   text-align: center;
   color: white;
   margin-bottom: 100px;
   /* ajouter un addEventListener pour agrandir le texte lorsque le curseur de la souris passe dessus */
 }
 
-.game-context-homepage span {
+#game-context-homepage span {
   color: greenyellow;
 }
 
@@ -79,11 +79,12 @@ body {
   padding: 10px 55px;
 }
 
-/* .steam-logo {
-  background: url("../Img/steamlogo.png");
-  width: 200px 700px;
-  height: 700px 300px;
-} */
+.steam-logo {
+  width: 50px 20px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
 
 .enter-button-homepage {
   font-family: "johnwick";
@@ -107,6 +108,9 @@ body {
 }
 
 /* GAMEPAGE */
+
+/* Block de Pop-Up : rules / lose / win / gameover
+*/
 
 .pop-up-rules {
   background-color: rgb(0, 0, 0, 0.94);
@@ -136,7 +140,7 @@ body {
   border-radius: 80px;
 }
 
-.pop-up-lose {
+/* .pop-up-lose {
   display: none;
 }
 
@@ -150,6 +154,36 @@ body {
   display: none;
 }
 
+.pop-up-win {
+  display: none;
+}
+
+.pop-up-win button {
+  font-family: "johnwick";
+  background-color: black;
+  color: greenyellow;
+  font-size: 2rem;
+  padding: 15px 50px;
+  border-radius: 80px;
+  display: none;
+}
+
+.pop-up-gameover {
+  display: none;
+}
+
+.pop-up-gameover button {
+  font-family: "johnwick";
+  background-color: black;
+  color: greenyellow;
+  font-size: 2rem;
+  padding: 15px 50px;
+  border-radius: 80px;
+  display: none;
+} */
+
+/* Block de titres */
+
 .game-name-gamepage {
   font-family: "johnwick";
   font-size: 100px;
@@ -161,7 +195,7 @@ body {
 .pick-right-card-text {
   text-align: center;
   color: white;
-  font-size: 3rem;
+  font-size: 60px;
 }
 
 .pick-right-card-text span {
@@ -175,69 +209,7 @@ body {
   height: 600px;
 } */
 
-#cards-game {
-  background: rgba(0, 0, 0, 0.6);
-  margin: 50px;
-  padding: 80px 20px;
-  height: 350px;
-  display: flex;
-  justify-content: space-between;
-  justify-content: space-around;
-}
-
-.mistery-card-1 {
-  background: url("../Img/carte-mistere-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  transition: transform 0.6s ease;
-}
-
-.mistery-card-2 {
-  background: url("../Img/carte-mistere-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  transition: transform 0.6s ease;
-}
-
-.mistery-card-3 {
-  background: url("../Img/carte-mistere-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  transition: transform 0.6s ease;
-}
-
-#timer {
-  font-family: "timer-johnwick";
-  color: greenyellow;
-  background: url("../Img/chien-pitbull-john-wick.jpeg");
-  background-size: contain;
-  /* position: fixed; */
-  margin: 40px 700px;
-  padding: 20px;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bolder;
-  border: 5.5px solid greenyellow;
-  width: 150px;
-}
-
-/* #card-reference {
-  background: url("../Img/carte-chien-john-wick.jpg");
-
-  width: 360px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-left: 620px;
-  border: 4px solid white;
-} */
-
-/* .dog-card-reference {
-  background: url("../carte-chien-john-wick.jpg");
-} */
+/* Block de StartGame bouton + Timer */
 
 #start-game {
   margin: 20px 430px;
@@ -254,3 +226,131 @@ body {
   padding: 15px 50px;
   border-radius: 80px;
 }
+
+#timer {
+  font-family: "timer-johnwick";
+  color: greenyellow;
+  background: url("../Img/carte-pitbull.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* position: fixed; */
+  margin: 40px 700px;
+  padding: 20px;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bolder;
+  border: 5.5px solid greenyellow;
+  width: 150px;
+}
+
+#card-reference {
+  background: url("../Img/carte-pitbull.jpg");
+  display: none;
+}
+
+/* Block de cartes à retourner */
+
+#cards-game {
+  background: rgba(0, 0, 0, 0.6);
+  margin: 50px;
+  padding: 80px 20px;
+  height: 350px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  display: inline-block;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.turned {
+  pointer-events: none;
+}
+
+.card.turned .front {
+  transform: rotateY(0deg);
+}
+
+.card.turned .back {
+  transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+  transition: transform 0.6s ease;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  font-size: 64px;
+  background-size: cover;
+  border: 4px solid white;
+}
+
+.card .front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotateY(-180deg) translateZ(1px);
+  backface-visibility: hidden;
+  /* background: url("../Img/carte-mistere-john-wick.jpg"); */
+}
+
+.card .back {
+  background-image: url("./../Img/carte-mistere.jpg");
+  /* background: url("../Img/carte-chien-john-wick.jpg"); */
+  /* background-size: contain;
+  width: 25%;
+  border: 4px solid white;
+  display: none; */
+}
+/* 
+.mistery-card-2-front {
+  background: url("../Img/carte-mistere-john-wick.jpg");
+  background-size: contain;
+  width: 25%;
+  border: 4px solid white;
+  display: block;
+}
+
+.mistery-card-2-back {
+  background: url("../Img/carte-chat-john-wick.jpg");
+  background-size: contain;
+  width: 25%;
+  border: 4px solid white;
+  display: none;
+}
+
+.mistery-card-3-front {
+  background: url("../Img/carte-mistere-john-wick.jpg");
+  background-size: contain;
+  width: 25%;
+  border: 4px solid white;
+  display: block;
+}
+
+.mistery-card-3-back {
+  background: url("../Img/carte-mechant-john-wick.jpg");
+  background-size: contain;
+  width: 25%;
+  border: 4px solid white;
+  display: none;
+} */
+
+/* #card-reference {
+  background: url("../Img/carte-chien-john-wick.jpg");
+
+  width: 360px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 620px;
+  border: 4px solid white;
+} */
+
+/* .dog-card-reference {
+  background: url("../carte-chien-john-wick.jpg");
+} */
