@@ -98,11 +98,11 @@ body {
   color: greenyellow;
   font-size: 2rem;
   position: fixed;
-  padding: 15px 50px;
+  /* padding: 15px 50px; */
   border-radius: 80px;
-  margin: 65px 1250px;
+  margin: 65px 1220px;
   padding: 15px 0px;
-  width: 300px;
+  width: 350px;
   /* box-shadow: 5px 5px 0 rgba(151, 12, 251, 0.6); */
   /* ajouter un filtre qui empeche de lancer le jeu si la date de naissance dand 'l'input date' est < à 18ans */
 }
@@ -264,16 +264,11 @@ body {
   margin: auto;
   padding: 20px;
   text-align: center;
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-weight: bolder;
   border: 5.5px solid greenyellow;
   width: 250px;
-  height: 150px;
-}
-
-#timer p {
-  margin: auto;
-  color: red;
+  height: 200px;
 }
 
 #card-reference {

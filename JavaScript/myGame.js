@@ -36,6 +36,9 @@ window.addEventListener("load", newGame);
 
 function newGame() {
   enterButton.addEventListener("click", (event) => {
+    if (!validateAge(event)) {
+      return alert(`You must be at least 18 years old to enter the Casino.`);
+    }
     event.preventDefault();
     homePage.style.display = "none";
     gamePage.style.display = "block";
@@ -176,9 +179,32 @@ const countdownTimer = document.getElementById("timer");
 
 // Give authorisation to enter the game if age >= 18yo
 
+function validateAge(event) {
+  event.preventDefault(); // prevent form submission
+  const birthday = new Date(
+    document.querySelector(".birth-date-input-homepage").value
+  );
+  const ageDifference = Date.now() - birthday.getTime();
+  console.log(birthday.getTime());
+  const ageInYears = Math.floor(ageDifference / (1000 * 60 * 60 * 24 * 365));
+  const minAge = 18;
+  console.log(ageInYears);
+  if (ageInYears < minAge) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// const form = document.querySelector(".enter-button-homepage");
+// form.addEventListener("click", validateAge);
+
 // From "return to Homepage" button to Homepage (when GAMEOVER)
 
-// Pop-up "You lose" shows up when you lose
+// Audio sur la Pop-up "You lose"
+
+// const winningAudio = document.querySelector("#pop-up-win audio");
+// winningAudio.play();
 
 // Pop-up "You win" shows up when you win
 
