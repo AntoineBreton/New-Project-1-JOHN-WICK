@@ -37,7 +37,9 @@ window.addEventListener("load", newGame);
 function newGame() {
   enterButton.addEventListener("click", (event) => {
     if (!validateAge(event)) {
-      return alert(`You must be at least 18 years old to enter the Casino.`);
+      return alert(
+        `YOU MUST BE AT LEAST 18 YEARS OLD TO ENTER THE CASINO BRO !`
+      );
     }
     event.preventDefault();
     homePage.style.display = "none";
@@ -84,7 +86,7 @@ gameOver.addEventListener("close", (event) => {
 
 function startgame() {
   startGameButton.style.display = "none";
-  intervalId = setInterval(updateCountdown, 400);
+  intervalId = setInterval(updateCountdown, 1000);
   function updateCountdown() {
     time--;
     const minute = Math.floor(time / 60);
@@ -97,7 +99,7 @@ function startgame() {
       clearInterval(intervalId);
       setTimeout(() => {
         gameOver.showModal();
-      }, 800);
+      }, 1150);
     }
   }
   // Shuffle les cartes
@@ -112,7 +114,7 @@ function startgame() {
       html += `
           <div class='card' data-card-name="${pic.name}">
             <div class="back" name="${pic.img}"></div>
-            <div class="front" style="background: url(Img/${pic.img}) no-repeat"></div>
+            <div class="front ${pic.name}" style="background: url(Img/${pic.img}) no-repeat"></div>
           </div>
         `;
 
@@ -132,7 +134,7 @@ function startgame() {
             if (cardGame.checkIfPair(nameOne, refCard)) {
               setTimeout(() => {
                 win.showModal();
-              }, 800);
+              }, 1150);
               // console.log("You win");
               clearInterval(intervalId);
 
@@ -149,7 +151,7 @@ function startgame() {
             if (cardGame.checkIfPair(nameTwo, refCard)) {
               setTimeout(() => {
                 win.showModal();
-              }, 800);
+              }, 1150);
 
               // console.log("You win");
               clearInterval(intervalId);
@@ -158,7 +160,7 @@ function startgame() {
             } else {
               setTimeout(() => {
                 lose.showModal();
-              }, 800);
+              }, 1150);
               // console.log("You lose");
             }
           }
