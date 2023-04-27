@@ -6,6 +6,8 @@ import Cardgame from "./myRulesGame.js";
 console.log(Cardgame);
 
 const cardGame = new Cardgame(cards);
+const startTimer = 1;
+let time = startTimer * 30;
 
 // From Homepage to Gamepage
 
@@ -15,52 +17,93 @@ const homePage = document.getElementById("Homepage");
 
 const enterButton = document.querySelector(".enter-button-homepage");
 
+// Lancer le jeu en cliquant sur le bouton "Start Game" (en appelant la fonction Startgame)
 const startGameButton = document.querySelector(".start-game-button");
-
 startGameButton.addEventListener("click", startgame);
+
+// Global variables
 
 let win = document.getElementById("pop-up-win");
 let lose = document.getElementById("pop-up-lose");
 let gameOver = document.getElementById("pop-up-gameover");
 
-// Global variables
-
 let html = "";
 
 let intervalId;
 
-console.log(enterButton);
-enterButton.addEventListener("click", (event) => {
-  event.preventDefault();
+window.addEventListener("load", newGame);
+// From Homepage to Gamepage
 
-  homePage.style.display = "none";
-  gamePage.style.display = "block";
+function newGame() {
+  enterButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    homePage.style.display = "none";
+    gamePage.style.display = "block";
+    startGameButton.style.display = "block";
+    time = 30;
+    const minute = Math.floor(time / 60);
+    let seconds = time % 60;
+    countdownTimer.innerHTML = `0${minute}: ${seconds}`;
+    document.querySelector("#cards-game").innerHTML = html;
+    cardGame.pickedCards = [];
+    html = "";
+    cardGame.shuffleCards();
+    newGame();
+  });
+}
+
+// Retouner à la page d'accueil en cliquant sur le bouton de la pop-up WIN et GAMEOVER "Return homepage"
+
+//const popUpWinButton = document.querySelector("#pop-up-win button");
+win.addEventListener("close", (event) => {
+  event.preventDefault();
+  homePage.style.display = "block";
+  gamePage.style.display = "none";
 });
 
-// Create an event by liking on mistery cards
+//const popUpGameOverButton = document.querySelector("#pop-up-gameover button");
+gameOver.addEventListener("close", (event) => {
+  event.preventDefault();
+  homePage.style.display = "block";
+  gamePage.style.display = "none";
+  // time = 30;
+  // const minute = Math.floor(time / 60);
+  // let seconds = time % 60;
+  // countdownTimer.innerHTML = `0${minute}: ${seconds}`;
+  // document.querySelector("#cards-game").innerHTML = html;
+  // cardGame.pickedCards = [];
+  // html = "";
+  // cardGame.shuffleCards();
+  // newGame();
+});
 
 // Set the timer (countdown) and Start game
 
 function startgame() {
-  const startTimer = 1;
-  let time = startTimer * 30;
-
-  intervalId = setInterval(updateCountdown, 700);
+  startGameButton.style.display = "none";
+  intervalId = setInterval(updateCountdown, 400);
   function updateCountdown() {
     time--;
     const minute = Math.floor(time / 60);
     let seconds = time % 60;
 
     countdownTimer.innerHTML = `0${minute}: ${seconds}`;
-    console.log(time);
+    //console.log(time);
 
     if (time === 0) {
       clearInterval(intervalId);
+      setTimeout(() => {
+        gameOver.showModal();
+      }, 800);
     }
   }
-
+  // Shuffle les cartes
   cardGame.shuffleCards();
+
+  // Lancer la fonction play()
+
   play();
+
   function play() {
     cardGame.cards.forEach((pic) => {
       html += `
@@ -69,6 +112,8 @@ function startgame() {
             <div class="front" style="background: url(Img/${pic.img}) no-repeat"></div>
           </div>
         `;
+
+      // Create an event by liking on mistery cards
 
       document.querySelector("#cards-game").innerHTML = html;
       document.querySelectorAll(".card").forEach((card) => {
@@ -82,8 +127,10 @@ function startgame() {
             console.log(nameOne);
             console.log(refCard);
             if (cardGame.checkIfPair(nameOne, refCard)) {
-              win.showModal();
-              console.log("You win");
+              setTimeout(() => {
+                win.showModal();
+              }, 800);
+              // console.log("You win");
               clearInterval(intervalId);
 
               //pairsGuessed.innerText = cardGame.pairsGuessed;
@@ -97,13 +144,19 @@ function startgame() {
             console.log(nameTwo);
             console.log(refCard);
             if (cardGame.checkIfPair(nameTwo, refCard)) {
-              win.showModal();
-              console.log("You win");
+              setTimeout(() => {
+                win.showModal();
+              }, 800);
+
+              // console.log("You win");
               clearInterval(intervalId);
+              return;
               //pairsGuessed.innerText = cardGame.pairsGuessed;
             } else {
-              lose.showModal();
-              console.log("You lose");
+              setTimeout(() => {
+                lose.showModal();
+              }, 800);
+              // console.log("You lose");
             }
           }
         });
@@ -138,9 +191,19 @@ let extendHomePageContextTitle = document.getElementById(
 );
 
 extendHomePageContextTitle.addEventListener("mouseover", function () {
-  extendHomePageContextTitle.style.fontSize = "95px"; // Changer la taille de police à 24px
+  extendHomePageContextTitle.style.fontSize = "95px";
 });
 
 extendHomePageContextTitle.addEventListener("mouseout", function () {
-  extendHomePageContextTitle.style.fontSize = "60px"; // Revenir à la taille de police initiale (16px) lorsque la souris quitte l'élément texte
+  extendHomePageContextTitle.style.fontSize = "60px";
+});
+
+// Agrandir le Timer
+
+startGameButton.addEventListener("mouseover", function () {
+  startGameButton.style.fontSize = "70px";
+});
+
+startGameButton.addEventListener("mouseout", function () {
+  startGameButton.style.fontSize = "35px";
 });
