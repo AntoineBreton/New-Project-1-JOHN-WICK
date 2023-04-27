@@ -13,12 +13,8 @@
   src: url("../Fonts/missiondanger.ttf");
 }
 
-/* * {
-  margin: ;
-} */
-
 body {
-  margin: 0;
+  margin: auto;
   font-family: "roboto-font-johnwick";
   background-size: cover;
   background: url("../Img/background-John-Wick-purple.jpg");
@@ -133,6 +129,7 @@ body {
 
 .pop-up-rules h1 {
   color: greenyellow;
+  margin: auto;
 }
 
 .pop-up-rules button {
@@ -142,11 +139,12 @@ body {
   font-size: 2rem;
   padding: 15px 50px;
   border-radius: 80px;
+  margin-top: 20px;
 }
 
 #pop-up-win {
-  position: absolute;
-  top: 1000px;
+  position: fixed;
+  /* top: 1000px; */
   text-align: center;
   color: greenyellow;
   font-size: 3.2rem;
@@ -167,8 +165,8 @@ body {
 }
 
 #pop-up-lose {
-  position: absolute;
-  top: 1000px;
+  position: fixed;
+  /* top: 1000px; */
   text-align: center;
   color: red;
   font-size: 3rem;
@@ -189,8 +187,8 @@ body {
 }
 
 #pop-up-gameover {
-  position: absolute;
-  top: 1000px;
+  position: fixed;
+  /* top: 1000px; */
   text-align: center;
   color: red;
   font-size: 3rem;
@@ -263,13 +261,19 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   /* position: fixed; */
-  margin: 40px 700px;
+  margin: auto;
   padding: 20px;
   text-align: center;
   font-size: 3rem;
   font-weight: bolder;
   border: 5.5px solid greenyellow;
-  width: 150px;
+  width: 250px;
+  height: 150px;
+}
+
+#timer p {
+  margin: auto;
+  color: red;
 }
 
 #card-reference {
@@ -325,7 +329,6 @@ body {
   top: 0;
   transform: rotateY(-180deg) translateZ(1px);
   backface-visibility: hidden;
-  /* background: url("../Img/carte-mistere-john-wick.jpg"); */
 }
 
 .card .back {
@@ -336,50 +339,3 @@ body {
   border: 4px solid white;
   display: none; */
 }
-/* 
-.mistery-card-2-front {
-  background: url("../Img/carte-mistere-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  display: block;
-}
-
-.mistery-card-2-back {
-  background: url("../Img/carte-chat-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  display: none;
-}
-
-.mistery-card-3-front {
-  background: url("../Img/carte-mistere-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  display: block;
-}
-
-.mistery-card-3-back {
-  background: url("../Img/carte-mechant-john-wick.jpg");
-  background-size: contain;
-  width: 25%;
-  border: 4px solid white;
-  display: none;
-} */
-
-/* #card-reference {
-  background: url("../Img/carte-chien-john-wick.jpg");
-
-  width: 360px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-left: 620px;
-  border: 4px solid white;
-} */
-
-/* .dog-card-reference {
-  background: url("../carte-chien-john-wick.jpg");
-} */
