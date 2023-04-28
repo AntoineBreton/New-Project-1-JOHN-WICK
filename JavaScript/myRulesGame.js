@@ -26,11 +26,12 @@ class Cardgame {
   checkIfFinished() {
     return this.pairsGuessed === this.cards.length / 2;
   }
-
-  //   2. Timer rules
-
-  timeIsOver() {}
 }
+
+//   //   2. Timer rules
+
+//   timeIsOver() {}
+// }
 
 // exporting Gameplay class
 export default Cardgame;

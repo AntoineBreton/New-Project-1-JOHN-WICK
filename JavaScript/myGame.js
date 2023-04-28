@@ -71,15 +71,6 @@ gameOver.addEventListener("close", (event) => {
   event.preventDefault();
   homePage.style.display = "block";
   gamePage.style.display = "none";
-  // time = 30;
-  // const minute = Math.floor(time / 60);
-  // let seconds = time % 60;
-  // countdownTimer.innerHTML = `0${minute}: ${seconds}`;
-  // document.querySelector("#cards-game").innerHTML = html;
-  // cardGame.pickedCards = [];
-  // html = "";
-  // cardGame.shuffleCards();
-  // newGame();
 });
 
 // Set the timer (countdown) and Start game
@@ -208,10 +199,6 @@ function validateAge(event) {
 // const winningAudio = document.querySelector("#pop-up-win audio");
 // winningAudio.play();
 
-// Pop-up "You win" shows up when you win
-
-// Pop-up "Gameover" when time is over
-
 // Agrandir mon titre h2 lorsque mon pointer passe dessus, puis le faire revenir à sa taille de base :
 
 let extendHomePageContextTitle = document.getElementById(
@@ -226,7 +213,7 @@ extendHomePageContextTitle.addEventListener("mouseout", function () {
   extendHomePageContextTitle.style.fontSize = "60px";
 });
 
-// Agrandir le Timer
+// Agrandir le bouton Start Game
 
 startGameButton.addEventListener("mouseover", function () {
   startGameButton.style.fontSize = "70px";
