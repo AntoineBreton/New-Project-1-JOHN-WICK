@@ -1,10 +1,10 @@
-1.THE GAME
+-1. THE GAME-
 
 The "JOHN WICK BONTO" game.
 
 This game aims to provide a stressful experience to players and calls speed skills out. Making decision quikly is the key.
 
-2.STORY TELLING
+-2. STORY TELLING-
 
 HELP JOHN WICK FIND HIS DOG BEFORE THE GONG !!!
 
@@ -24,7 +24,7 @@ Else, if you fail, John Wick could be very pissed of, and remove you from earth.
 
 So...good luck !!!
 
-3. GAME RULES
+-3. GAME RULES-
 
 BONTO game, also known as Three-Card Monte, is a classic casino gambling game that is played with a set of three cards. The objective of the game is to correctly identify the location of a specific card among a flush of three.
 
@@ -40,7 +40,7 @@ No score and health bar.
 
 If you don't succeed, the game is over !
 
-4. DEVELOPMENT PROCESS
+-4. DEVELOPMENT PROCESS-
 
 Took me one day to define game structure (drawning it on paper sheets) and game logic.
 
@@ -50,7 +50,7 @@ Took me one day to design game style using CSS tools (finding backgrounds, photo
 
 Took me a morning to write the READ ME file down and clean my code out.
 
-5. BEHIND THE SCENES
+-5. BEHIND THE SCENES-
 
 Making this game playable was not as easy as we could imagine, despite of childish rules.
 
@@ -64,10 +64,10 @@ Also, when you win the game, or when the game is over because running out of tim
 
 Here, the tricky thing was to stop the Timer countdown using a clearInterval() method when pop-up window shows up, go back to Homepage clicking on the "Return Homepage" button of the pop-up, and then enter the game to reach Gamepage clicking on the "Enter the Game" button which is setting a new 00:30'' Timer before restart.
 
-6.  DESIGN CONSIDERATION
+-6. DESIGN CONSIDERATION-
 
 Regarding game design, the idea was on one hand to create an retro gaming ambiance, and on the other hand stick with JOHN WICK's dark world.
 
-7.  NEXT ADD-ON
+-7. NEXT ADD-ON-
 
-With the upcoming part II, JOHN WICK "THE BONTO REVENGE", we will surely add different levels of difficuly, audio mode (mixing Keanu Reeves narrator voice in progress), and easter eggs !
+With the upcoming part II, JOHN WICK "THE BONTO REVENGE", we will surely add different levels of difficulty, audio mode (mixing Keanu Reeves narrator voice in progress), and easter eggs !
